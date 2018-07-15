@@ -20,7 +20,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '+)5+%c&ek8gibco!o4gpk6mktw2a%qst0@ac(lx2vkb03t2yzk'
+SECRET_KEY_FILE = os.path.join(os.path.join(BASE_DIR,'sandbox'), 'secretkey')
+SECRET_KEY = open(SECRET_KEY_FILE).read()
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -31,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+	'polls.apps.PollsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
